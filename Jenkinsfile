@@ -16,7 +16,13 @@ pipeline {
                 echo 'Install requirements.txt'
             }
         }
-
+        stage(' Check for code functionality') {
+            steps {
+                echo 'Output of the multiplication function'
+                python -c 'from calculator import multiply; print(multiply(20,30))'
+                
+            }
+        }
         stage(' Unit Testing') {
             steps {
                 // Now we can safely install requirements
