@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('SCM Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'gitID', url: 'https://github.com/SharanyaGaneshPrasad/calculator-pipeline.git'
+                git branch: 'master', credentialsId: 'gitID', url: 'https://github.com/SharanyaGaneshPrasad/calculator-pipeline.git'
             }
         }
         
