@@ -12,7 +12,7 @@ pipeline {
         
         stage('Install Requirements and Unit Testing') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'apt install -r requirements.txt'
                 sh 'python3 -m unittest discover'
             }
         }
