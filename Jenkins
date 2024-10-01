@@ -1,0 +1,41 @@
+// Jenkins
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                 echo 'git code checkout'
+            }
+        }
+        
+        stage('Install Requirements') {
+            steps {
+                // Install Python and pip if not already installed
+                echo 'Install requirements.txt'
+            }
+        }
+        stage(' Check for code functionality') {
+            steps {
+                echo 'Output of the multiplication function'
+                sh 'python3 -c "from calculator import multiply; print(multiply(20,30))"'
+                
+            }
+        }
+        stage(' Unit Testing') {
+            steps {
+                // Now we can safely install requirements
+                sh 'python3 -m unittest discover'
+            }
+        }
+        
+        stage('Deploy Phase') {
+            steps {
+                echo 'Deploying application...'
+               
+                
+            }
+        }
+    }
+}
