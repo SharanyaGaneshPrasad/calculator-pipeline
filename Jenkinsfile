@@ -10,18 +10,16 @@ pipeline {
             }
         }
         
-        stage('Install Python and Pip') {
+        stage('Install Requirements') {
             steps {
                 // Install Python and pip if not already installed
-                sh 'sudo apt-get update'
-                sh 'sudo apt-get install -y python3 python3-pip'
+                echo 'Install requirements.txt'
             }
         }
 
-        stage('Install Requirements and Unit Testing') {
+        stage(' Unit Testing') {
             steps {
                 // Now we can safely install requirements
-                sh 'pip3 install -r requirements.txt'
                 sh 'python3 -m unittest discover'
             }
         }
